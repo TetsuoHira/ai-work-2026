@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI時代の仕事術 | Special Interactive Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #38b2ac;
+            --gold: #d4af37;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        /* ふわっと表示されるアニメーション */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            padding: 20px;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0; font-weight: 700; letter-spacing: -1px; }
+        .subtitle { font-size: 1.2rem; opacity: 0.8; margin-top: 10px; }
+
+        .container { max-width: 1000px; margin: -80px auto 100px; padding: 0 20px; }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        h2 { color: var(--accent); font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
+
+        /* 役割分担の動的パネル */
+        .flex-grid { display: flex; gap: 30px; margin-top: 30px; }
+        .panel { 
+            flex: 1; padding: 30px; border-radius: 16px; 
+            transition: transform 0.3s; cursor: default;
+        }
+        .panel:hover { transform: scale(1.03); }
+        .human { background: #fff5f5; border-left: 8px solid #f56565; }
+        .ai { background: #ebf8ff; border-left: 8px solid #4299e1; }
+
+        /* 3つの問い：クリックで色が変わる */
+        .question-card {
+            background: white;
+            border: 2px solid #edf2f7;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .question-card:hover { border-color: var(--accent); transform: translateX(10px); }
+        .question-card.active { background: #e6fffa; border-color: var(--accent); }
+        .q-number { 
+            font-size: 1.5rem; font-weight: bold; color: var(--accent); 
+            margin-right: 20px; min-width: 40px;
+        }
+
+        footer { text-align: center; padding: 50px; color: #718096; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .flex-grid { flex-direction: column; }
+            .card { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="reveal">
+        <h1>AI時代の仕事術</h1>
+        <p class="subtitle">人が「考えること」に集中できる時代の新機軸</p>
+    </div>
+</header>
+
+<div class="container">
+    <section class="card reveal">
+        <h2>AI進化のパラドックス</h2>
+        <p>AIは指数関数的に賢くなりますが、それを受け取る我々「人間」の認知能力は変わりません。情報が溢れる今こそ、AIが作った完璧な中身を、どう人間に届けるかという<strong>「伝え方の設計（UI）」</strong>が仕事の成否を分けます。</p>
+        <div style="background: #fdf2f2; padding: 20px; border-radius: 12px; margin-top: 20px; font-style: italic;">
+            「AIに完璧な資料を作らせたのに、なぜか響かない……」<br>
+            それは、仕事の目的と伝え方の設計を見失っているサインかもしれません。
+        </div>
+    </section>
+
+    <section class="card reveal">
+        <h2>新時代の役割分担</h2>
+        <p>AIの進化に合わせて、人間が担うべきポイントはより「上流」へとシフトしています。</p>
+        <div class="flex-grid">
+            <div class="panel human">
+                <strong>💡 人間が握るべき「魂」</strong>
+                <ul>
+                    <li>何を成し遂げたいかの決定</li>
+                    <li>仕事の「狙い」を言語化する</li>
+                    <li>どこで合意を取るか明確にする</li>
+                    <li>人間が理解しやすい形(UI)を考える</li>
+                </ul>
+            </div>
+            <div class="panel ai">
+                <strong>🤖 AIに任せる「腕」</strong>
+                <ul>
+                    <li>文章の執筆・構成の整理</li>
+                    <li>視覚的な図解への落とし込み</li>
+                    <li>大量の「たたき台」の量産</li>
+                    <li>データの構造化と分析</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="card reveal">
+        <h2>明日から使える「目的思考3問」</h2>
+        <p>作業を始める前、AIに指示を出す前の5秒間でチェックしてみましょう（クリックして確認！）。</p>
+        
+        <div class="question-card" onclick="this.classList.toggle('active')">
+            <div class="q-number">Q1</div>
+            <div><strong>これは、誰のための仕事ですか？</strong><br><small>届ける相手の顔を具体的にイメージできているか。</small></div>
+        </div>
+        
+        <div class="question-card" onclick="this.classList.toggle('active')">
+            <div class="q-number">Q2</div>
+            <div><strong>相手に、どう動いてほしいですか？</strong><br><small>読んだ後に「Yes」と言わせるのか、行動を変えさせるのか。</small></div>
+        </div>
+        
+        <div class="question-card" onclick="this.classList.toggle('active')">
+            <div class="q-number">Q3</div>
+            <div><strong>今日のゴールはどこですか？</strong><br><small>「完成」が目的か、それとも「判断」や「合意」か。</small></div>
+        </div>
+    </section>
+
+    <section class="card reveal" style="border-top: 6px solid var(--accent);">
+        <h2>結びに：AIは最強の「補助輪」</h2>
+        <p>目的が明確な人にとって、AIはどこまでも遠くへ連れて行ってくれる最強の補助輪になります。逆に目的が曖昧なら、ただの高速作業ツールで終わってしまいます。自分にしかできない「目的の言語化」から始めましょう。</p>
+    </section>
+</div>
+
+<footer>
+    <p>© 2026 てつごん | note ――つくる、つながる、とどける。</p>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
